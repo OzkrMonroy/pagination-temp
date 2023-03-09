@@ -1,0 +1,35 @@
+button {
+  @apply bg-none border-none cursor-pointer rounded-sm py-[1px] px-1 flex items-center justify-center font-normal text-xs;
+  appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+}
+
+.page-btn {
+  @apply bg-transparent rounded-sm mx-[2px];
+  color: #666666;
+  letter-spacing: 0.1em;
+  transition: background 0.3s ease-in-out;
+}
+
+.page-btn:first-of-type {
+  @apply ml-0;
+}
+
+.page-btn:last-of-type {
+  @apply mr-0;
+}
+
+.pagination-buttons {
+  @apply flex items-center;
+}
+
+.page-btn.active {
+  background: #2d8c9e;
+  color: #fff;
+}
+
+.page-btn[disabled] {
+  opacity: 0.3;
+}

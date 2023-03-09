@@ -1,0 +1,31 @@
+<div class="pagination-buttons">
+  <button
+    class="page-btn prev-page"
+    type="button"
+    [disabled]="currentPage === 1"
+    (click)="prevAndNextUpdate(-1)"
+  >
+    <img
+      src="./assets/images/previous.svg"
+      alt="Previous page"
+      class="w-full h-full"
+    />
+  </button>
+  <button
+    type="button"
+    class="page-btn"
+    *ngFor="let page of pages"
+    [class]="currentPage === page ? 'active' : ''"
+    (click)="updateCurrentPage(page)"
+  >
+    {{ page }}
+  </button>
+  <button
+    class="page-btn prev-page"
+    type="button"
+    [disabled]="currentPage === totalPages"
+    (click)="prevAndNextUpdate(1)"
+  >
+    <img src="./assets/images/next.svg" alt="Next page" class="btn-icon" />
+  </button>
+</div>
