@@ -4,4 +4,19 @@
     [totalPages]="150"
     (onChangeCurrentPage)="onChangeCurrentPage($event)"
   ></app-table-pagination>
+
+  <form [formGroup]="form" class="w-[50%] mx-auto">
+    <app-input
+      [form]="form"
+      name="initial-date"
+      label="Fecha inicial"
+      rule="date"
+    ></app-input>
+    <app-input
+      [form]="form"
+      name="final-date"
+      label="Fecha final"
+      rule="date"
+    ></app-input>
+  </form>
 </div>

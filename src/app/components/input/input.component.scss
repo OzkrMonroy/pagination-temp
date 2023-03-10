@@ -1,0 +1,78 @@
+input {
+  @apply w-full h-[50px] rounded-[7px] border-[1px] border-solid text-gray-semi-light;
+
+  &.primary {
+    @apply border-blue-dark;
+  }
+  &.auto-filled {
+    @apply border-digital-aqua bg-gray-ultra-light text-gray-dark;
+  }
+  &.error {
+    @apply border-red-500;
+  }
+  &.success {
+    @apply border-green-500;
+  }
+  &:focus {
+    @apply outline-none;
+  }
+}
+
+input,
+.placeholder-text {
+  font-size: 1rem;
+  padding: 0 0.85rem;
+}
+input:focus + .placeholder-text .text,
+.placeholder-text .text.float {
+  @apply bg-white text-sm;
+  transform: translate(0, -100%);
+}
+input.auto-filled:focus {
+  box-shadow: 2px 2px 1px 0 #00c1d4;
+}
+input.auto-filled.error:focus {
+  box-shadow: none;
+}
+input:focus + .placeholder-text .auto-filled,
+.placeholder-text .auto-filled.float {
+  @apply bg-gray-ultra-light text-blue-dark;
+}
+.placeholder-text {
+  @apply absolute top-0 bottom-0 left-0 right-0 border-[2px] border-transparent bg-transparent pointer-events-none flex items-center z-[5];
+}
+.placeholder-text .text.auto-filled.primary,
+.placeholder-text .text.auto-filled.success {
+  @apply text-blue-dark;
+}
+
+.placeholder-text .text {
+  @apply text-base px-2 bg-transparent;
+  transition: transform 0.15s ease-out, font-size 0.15s ease-out,
+    background-color 0.2s ease-out, color 0.15s ease-out;
+
+  &.primary {
+    @apply text-blue-dark;
+  }
+  &.error {
+    @apply text-red-500;
+  }
+  &.success {
+    @apply text-green-500;
+  }
+}
+
+.bselect:focus {
+  background-color: transparent;
+  box-shadow: 2px 2px 1px 0 #00c1d4;
+  outline: none;
+}
+
+.bselect {
+  position: relative;
+  min-width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  background-color: transparent;
+  text-align: left;
+}

@@ -1,0 +1,62 @@
+<div
+  class="relative mt-5 mb-4 flex flex-col"
+  [ngClass]="containerClasses"
+  [formGroup]="form"
+>
+  <div class="relative">
+    <input
+      *ngIf="rule === 'date'"
+      [ngClass]="getInputColor()"
+      [type]="type"
+      [id]="id"
+      [name]="name"
+      [autocomplete]="autoComplete"
+      [formControlName]="name"
+      [maxlength]="length"
+      (keyup.enter)="eventKeyboard()"
+      mask="d0/M0/0000"
+      [leadZeroDateTime]="true"
+      inputmode="numeric"
+      onClick="this.select();"
+      [class]="defaultFilled ? 'auto-filled' : ''"
+      #inputRef
+      [tabindex]="tabIndex"
+      (focus)="focusable()"
+    />
+    <div
+      class="absolute right-0 bottom-0 w-[50px] h-[50px] flex justify-center items-center cursor-pointer"
+      (click)="displayDateComponent()"
+    >
+      <img
+        src="./assets/images/calendar.svg"
+        alt="calendar"
+        class="w-[23px] h-[22px]"
+      />
+    </div>
+    <div [formGroup]="localForm">
+      <p-calendar
+        *ngIf="displayDate"
+        (onSelect)="onDateSelected($event)"
+        inputId="calendar-input"
+        class="absolute right-0 top-full w-full h-full -z-10"
+        [inline]="true"
+        formControlName="initialDate"
+      ></p-calendar>
+    </div>
+    <label
+      class="placeholder-text"
+      [for]="name"
+      id="placeholder-fname"
+      *ngIf="rule !== 'amount' && rule !== 'select'"
+    >
+      <div
+        class="text flex gap-1 items-center"
+        [class.float]="mustFloat()"
+        [ngClass]="getInputColor()"
+        [class]="defaultFilled ? 'auto-filled' : ''"
+      >
+        <span>{{ label }}{{ required ? "*" : "" }}</span>
+      </div>
+    </label>
+  </div>
+</div>

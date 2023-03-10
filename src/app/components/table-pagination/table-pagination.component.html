@@ -1,6 +1,6 @@
 <div class="pagination-buttons">
   <button
-    class="page-btn prev-page"
+    class="button page-btn prev-page"
     type="button"
     [disabled]="currentPage === 1"
     (click)="prevAndNextUpdate(-1)"
@@ -13,7 +13,7 @@
   </button>
   <button
     type="button"
-    class="page-btn"
+    class="button page-btn"
     *ngFor="let page of pages"
     [class]="currentPage === page ? 'active' : ''"
     (click)="updateCurrentPage(page)"
@@ -21,7 +21,7 @@
     {{ page }}
   </button>
   <button
-    class="page-btn prev-page"
+    class="button page-btn prev-page"
     type="button"
     [disabled]="currentPage === totalPages"
     (click)="prevAndNextUpdate(1)"
